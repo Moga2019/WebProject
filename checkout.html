@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Fresh Picks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <div class="logo">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/logo.jpg">
+            <h2>Farm Fresh Picks</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html" class="btnlogin-popup">Login</a></li>
+        </ul>
+    </div>
+</header>
+
+<div class="checkout-container">
+    <h1>Checkout</h1>
+    <div id="checkout-items"></div>
+    <h2 id="total-price"></h2>
+    <div class="payment-options">
+        <h3>Choose a payment method:</h3>
+        <button id="pay-with-card">Pay with Card</button>
+        <button id="pay-with-paypal">Pay with PayPal</button>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h3>Copy of Rights</h3>
+                <p>&copy; 2023 Farm Fresh Picks. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script></script>
+"use strict";
+
+document.addEventListener("DOMContentLoaded", () => {
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+const checkoutItemsDOM = document.getElementById("checkout-items");
+const totalPriceDOM = document.getElementById("total-price");
+
+if (cart.length > 0) {
+cart.forEach(cartItem => {
+const product = cartItem;
+insertItemToCheckoutDOM(product);
+});
+calculateTotal();
+} else {
+checkoutItemsDOM.innerHTML = "<p>Your cart is empty. Please add items to your cart before checking out.</p>";
+totalPriceDOM.innerText = "";
+}
+
+function insertItemToCheckoutDOM(product) {
+const checkoutItemHTML = `
+<div class="checkout-item">
+    <img src="${product.image}" alt="${product.name}" class="checkout-item-image">
+    <h2 class="checkout-item-name">${product.name}</h2>
+    <h3 class="checkout-item-price">R${product.price.toFixed(2)}</h3>
+    <h3 class="checkout-item-quantity">Quantity: ${product.quantity}</h3>
+</div>
+`;
+checkoutItemsDOM.insertAdjacentHTML("beforeend", checkoutItemHTML);
+}
+
+function calculateTotal() {
+let total = 0;
+cart.forEach(cartItem => {
+total += cartItem.price * cartItem.quantity;
+});
+totalPriceDOM.innerText = `Total Price: R${total.toFixed(2)}`;
+}
+});
+
+</body>
+</html>

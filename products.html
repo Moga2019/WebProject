@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Farm Fresh Picks - Fresh Produce Delivered</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <div class="logo">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/logo.jpg" alt="Farm Fresh Picks Logo">
+            <h2>Farm Fresh Picks</h2>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <button type="submit" id="search-button" aria-label="Search"><i class="fas fa-search"></i></button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html" class="btnlogin-popup">Login</a></li>
+        </ul>
+        <div class="header-right">
+            <div class="header-right">
+                <div class="cart-container">
+                    <button class="cart-icon" id="cart-icon" aria-label="Shopping Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count">0</span>
+                    </button>
+                    <div class="cart-items" id="cart-items">
+                        <ul id="cart-item-list"></ul>
+                        <button id="checkout-button" style="display:none;">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="products">
+    <h1>Our Products</h1>
+
+    <h2>Fruits</h2>
+
+    <div class="product-grid">
+
+        <div class="product-item" id="red_apples_section">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/red apples.png" alt="Red Apples">
+            <h3>Red Apple</h3>
+            <p>R18.75 per kg</p>
+            <button class="btn btn-primary" onclick="addToCart('carrot_section', 'Red Apples', R18.75)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+
+        <div class="product-item" id="green_apples_section">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/gravenstein-apples-on-my-tree-royalty-free-image-1627315369.jpg" alt="Green Apples">
+            <h3>Green Apples</h3>
+            <p>R23.99 per kg</p>
+            <button class="btn btn-primary" onclick="addToCart('carrot_section', 'Green Apples',R23.99)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+
+        <div class="product-item" id="bananas_section">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/bananas.jpg" alt="Bananas">
+            <h3>Bananas</h3>
+            <p>R9.99 per kg</p>
+            <button class="btn btn-primary" onclick="addToCart('carrot_section', 'Banana', 9.99)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+
+        <div class="product-item" id="grapes_section">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/grapes.jpg" alt="Grapes">
+            <h3>Grapes</h3>
+            <p>R39.99</p>
+            <button class="btn btn-primary" onclick="addToCart('carrot_section', 'Grape', 39.99)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+
+        <div class="product-item" id="oranges_section">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/oranges.jpg" alt="Oranges">
+            <h3>Oranges</h3>
+            <p>R49.99</p>
+            <button class="btn btn-primary" onclick="addToCart('carrot_section', 'Oranges', 49.99)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+
+        <div class="product-item" id="naartjie_section">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/naartje.jpg" alt="Naartjie">
+            <h3>Naartjie</h3>
+            <p>R25.99 a bag</p>
+            <button class="btn btn-primary" onclick="addToCart('naartjie_section', 'Carrot', 25.00)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+    </div>
+
+    </div>
+
+    <h2>Vegetables</h2>
+
+    <div class="product-grid">
+
+
+        <div class="product-item" id="carrot_section">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/carrots.jpg" alt="Carrot">
+            <h3>Carrot</h3>
+            <p>R10.00 per bunch</p>
+            <button class="btn btn-primary" onclick="addToCart('carrot_section','carrots', 10.00)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+        <div class="product-item" id="cabbage_section">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/cabbage.jpg" alt="Cabbage">
+            <h3>Cabbage</h3>
+            <p>R19.95 per kg</p>
+            <button class="btn btn-primary" onclick="addToCart('cabbage_section','cabbage', 19.95)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+        <div class="product-item" id="cucumber_section">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/cucumber.jpg" alt="Cucumber">
+            <h3>Cucumber</h3>
+            <p>R15.99 per kg</p>
+            <button class="btn btn-primary" onclick="addToCart('cucumber_section','cucumber', 15.99"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+        <div class="product-item" id="lettuce_section">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/lettucce.jpg" alt="Lettuce">
+            <h3>Lettuce</h3>
+            <p>R9.99 per kg</p>
+            <button class="btn btn-primary" onclick="addToCart('lettuce_section', 'Lettuce', 9.99)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+        <div class="product-item" id="garlic_section">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/garlic.jpg" alt="Garlic">
+            <h3>Garlic</h3>
+            <p>R19.95 per kg</p>
+            <button class="btn btn-primary" onclick="addToCart('garlic_section', 'Garlic', 19.95)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+        <div class="product-item" id="pumpkin_section">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/pumpkin.jpg" alt="Pumpkin">
+            <h3>Pumpkin</h3>
+            <p>R25.00 per bunch</p>
+            <button class="btn btn-primary" onclick="addToCart('pumpkin_section', 'Pumpkin', R25.00)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+        <div class="product-item" id="red_onion_section">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/red-onions.jpeg" alt="Red Onion">
+            <h3>Red Onion</h3>
+            <p>R19.95 per kg</p>
+            <button class="btn btn-primary" onclick="addToCart('red_onion_section', 'Red Onion', 19.95)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+        <div class="product-item" id="potatoes_section">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/potatoes.jpg" alt="Potatoes">
+            <h3>Potatoes</h3>
+            <p>R14.99 per kg</p>
+            <button class="btn btn-primary" onclick="addToCart('potatoes_section', 'Potatoes', 14.99)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+        <div class="product-item" id="redbeet_section">
+            <img src="/Applications/XAMPP/xamppfiles/htdocs/webproject/images/redbeet.jpg" alt="Redbeet">
+            <h3>Redbeet</h3>
+            <p>R15.99 per kg</p>
+            <button class="btn btn-primary" onclick="addToCart('redbeet_section', 'Potatoes', 14.99)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h3>Copy of Rights</h3>
+                <p>&copy; 2023 Farm Fresh Picks. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+     // Function to scroll to the checkout section
+    function scrollToCheckout() {
+        var checkoutSection = document.getElementById("checkout-section");
+        checkoutSection.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Function to handle click on cart icon
+    document.getElementById("cart-icon").addEventListener("click", function() {
+        scrollToCheckout();
+    });
+
+    // Function to handle adding a product to the cart
+    function addToCart(productId, productName, productPrice) {
+        // Create a new list item for the cart
+        var cartItem = document.createElement("li");
+        cartItem.textContent = productName + " - R" + productPrice;
+
+        // Append the list item to the cart
+        document.getElementById("cart-item-list").appendChild(cartItem);
+
+        // Update the cart count
+        var cartCount = parseInt(document.getElementById("cart-count").innerText);
+        document.getElementById("cart-count").innerText = cartCount + 1;
+
+        // Show the checkout and pay now buttons
+        document.getElementById("checkout-button").style.display = "block";
+        document.querySelector("[data-action='pay-now']").style.display = "block";
+    }
+
+    // Add event listener to search button
+    document.getElementById('searchButton').addEventListener('click', function() {
+        var query = document.getElementById('searchInput').value.toLowerCase();
+        searchProducts(query);
+    });
+
+    // Function to search products
+    function searchProducts(query) {
+        var productItems = document.querySelectorAll('.product-item');
+        productItems.forEach(function(item) {
+            if (item.dataset.name.toLowerCase().includes(query)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+    document.querySelector('[data-action="checkout"]').addEventListener("click", () => {
+      window.location.href = "checkout.html";
+  });
+</script>
+
+</body>
+</html>
